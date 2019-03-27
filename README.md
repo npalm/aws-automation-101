@@ -41,16 +41,20 @@ Time to create an instance. Let's create a similar instances as in the EC2 insta
 
 To create a security group we use the command `aws ec2 create-security-group`. Have a look at the docs, `aws ec2 create-security-group help` To create the security group use the following Command
 ```
-aws ec2 create-security-group --group-name <YOUR_NAME>-sg --description "<YOUR_NAME> Security Group 101"
+aws ec2 create-security-group --group-name <YOUR_NAME>-sg \
+  --description "<YOUR_NAME> Security Group 101"
 ```
 Make a note of the returned security group id. Next create an rule top open incoming traffic via port 80/
 ```
-aws ec2 authorize-security-group-ingress --group-id <SECURITY_GROUP_ID --protocol tcp --port 80 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id <SECURITY_GROUP_ID \
+  --protocol tcp --port 80 --cidr 0.0.0.0/0
 ```
 
 Finally we create the instance.
 ```
-aws ec2 run-instances --image-id=ami-25488752 --count 1 --instance-type t2.micro  --security-group-ids <SECURITY_GROUP_ID> --user-data file://terraform/template/user_data.sh
+aws ec2 run-instances --image-id=ami-25488752 --count 1 --instance-type \
+  t2.micro  --security-group-ids <SECURITY_GROUP_ID> \
+  --user-data file://terraform/template/user_data.sh
 ```
 
 Make a note of the instance id. Your server will be live in a few minutes. Lookup the public IP address and check your web app.
