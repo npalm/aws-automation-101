@@ -1,0 +1,4 @@
+[submodule "terraform"]
+	path = terraform
+	url = https://github.com/npalm/tf-helloworld-demo.git
+	branch = master
