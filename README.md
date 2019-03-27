@@ -63,3 +63,42 @@ And the security group.
 ```
 aws ec2 delete-security-group --group-id <SECURITY_GROUP_ID>
 ```
+
+## Terraform
+In many cased we not use the cli but choose a language that makes it a lot easier to automate the cloud. Today we have a brief look at Terraform.
+
+We walk trough a simple demo in a few steps. Which creates the same web app as in the previous AWS CLI example.
+
+Two import concepts in Terraform are Providers and Resources.
+
+> A provider is responsible for understanding API interactions and exposing resources. Providers generally are an IaaS (e.g. AWS, GCP, Microsoft Azure, OpenStack), PaaS (e.g. Heroku), or SaaS services (e.g. Terraform Enterprise, DNSimple, CloudFlare).
+
+> Resources are the most important element in the Terraform language. Each resource block describes one or more infrastructure objects, such as virtual networks, compute instances, or higher-level components such as DNS records.
+
+So for now we will not more about Terraform but just have a look at the code.
+
+Open the [main.tf](terraform/main.tf) in the dir `terraform`. Here you will see that there is defined a provider and two resources. Do you recognise them from the previous exercise?
+
+Tiem to create our awesome web server. First we need to install Terraform. A script is provided to help you. Excute the script.
+```
+./bin/install.sh
+```
+As output you should see the installed Terraform version.
+
+The first step is to initialize Terraform.
+```
+cd terraform
+terraform init
+```
+Next we run a dry run, to inspect what changes Terraform will make.
+```
+terraform plan -out plan.out
+```
+Check the output, is it what you expect? Apply the changes now.
+```
+terraform apply "plan.out"
+```
+In a few minutes your web app should be live. Check your web app. Finally we clean up our resources.
+```
+terraform destroy --force
+```
