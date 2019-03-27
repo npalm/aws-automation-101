@@ -81,7 +81,7 @@ Two import concepts in Terraform are Providers and Resources.
 
 So for now we will not more about Terraform but just have a look at the code.
 
-Open the [main.tf](terraform/main.tf) in the dir `terraform`. Here you will see that there is defined a provider and two resources. Do you recognise them from the previous exercise?
+Open the [main.tf](https://github.com/npalm/tf-helloworld-demo/blob/6ccd118aefc66c43773ec1457470092332ef8b60/main.tf) in the dir `terraform`. Here you will see that there is defined a provider and two resources. Do you recognise them from the previous exercise?
 
 Tiem to create our awesome web server. First we need to install Terraform. A script is provided to help you. Excute the script.
 ```
