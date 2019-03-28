@@ -2,6 +2,7 @@
 
 TERRAFORM_VERSION=0.11.13
 BIN_DIR=/home/ec2-user/.local/bin
+mkdir -p ${BIN_DIR}
 
 mkdir tmp
 cd tmp
